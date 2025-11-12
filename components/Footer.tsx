@@ -23,8 +23,8 @@ export const Footer = () => {
             <p className="[font-family:var(--font-subtitle)] text-xs uppercase tracking-[0.65em] text-white/60">
               Clínica Silvia Romero
             </p>
-            <h4 className="mt-4 text-3xl font-light tracking-[0.08em]">
-              Ritualiza tu cuidado con tecnología estética y calidez humana.
+            <h4 className="mt-4 text-balance text-3xl font-light tracking-[0.08em]">
+              <span className="text-[#d4af37]">Ritualiza</span> tu cuidado con tecnología estética y calidez humana.
             </h4>
           </div>
           <button className="self-start rounded-full border border-white/40 px-10 py-3 text-xs font-semibold uppercase tracking-[0.4em] transition hover:border-white hover:bg-white/10">
@@ -44,7 +44,7 @@ export const Footer = () => {
         </div>
 
         <div className="grid gap-6 border-t border-white/10 pt-8 md:grid-cols-[1fr_auto] md:items-center">
-          <div className="text-sm text-white/70">
+          <div className="text-balance text-sm text-white/70">
             Experiencias diseñadas para observar, pausar y sentirte escuchada. Agenda presencial o virtual.
           </div>
           <div className="flex flex-wrap gap-6 text-xs uppercase tracking-[0.4em] text-white/60">

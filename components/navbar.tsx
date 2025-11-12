@@ -27,20 +27,35 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   const closeMenu = () => setIsMenuOpen(false);
 
   const wrapperClasses = clsx(
-    "fixed inset-x-0 top-0 z-50 transition-colors duration-500 ease-out backdrop-blur-lg border-b border-transparent",
-    isScrolled ? "bg-black/90 border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.55)]" : "bg-transparent",
+    "fixed inset-x-0 top-0 z-50 border-b border-transparent backdrop-blur-2xl transition-colors duration-500 ease-out",
+    isScrolled ? "bg-black/85 border-white/5 shadow-[0_15px_40px_rgba(0,0,0,0.45)]" : "bg-transparent",
   );
 
   const navLinkClasses =
     "text-xs [font-family:var(--font-subtitle)] uppercase tracking-[0.45em] text-white/80 transition-colors duration-300 hover:text-white"; // subtle spacing for luxe feel
 
+  const languageButtonClasses =
+    "[font-family:var(--font-subtitle)] text-xs uppercase tracking-[0.45em] border px-5 py-2 rounded-full transition-colors duration-300";
+
   return (
     <>
       <header className={wrapperClasses}>
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
           <div className="hidden flex-1 items-center gap-8 md:flex">
             {primaryLinks.map((item) => (
               <Link key={item.href} href={item.href} className={navLinkClasses} onClick={closeMenu}>
@@ -55,7 +70,7 @@ export const Navbar = () => {
               aria-label="Open navigation menu"
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition-all duration-300 hover:border-white/60"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/40 text-white transition-all duration-300 hover:border-white"
             >
               <span className="relative flex h-3 w-4 flex-col justify-between">
                 <span
@@ -78,35 +93,37 @@ export const Navbar = () => {
                 />
               </span>
             </button>
-            <Link href="/" aria-label="Go to homepage" className="flex items-center justify-center">
+            <Link href="/" aria-label="Ir al inicio" className="flex items-center justify-center">
               <Image
                 src="/logo.png"
                 alt="Silvia Romero Logo"
-                width={64}
-                height={64}
+                width={72}
+                height={72}
                 priority
-                className="h-12 w-12 object-contain drop-shadow-[0_10px_20px_rgba(255,255,255,0.35)] transition-transform duration-500 ease-out"
+                className="h-14 w-14 object-contain transition-transform duration-500 ease-out"
                 style={{ filter: "brightness(0) invert(1)" }}
               />
             </Link>
-            <Button
-              as={Link}
-              href="#booking"
-              radius="full"
-              className="[font-family:var(--font-title)] text-xs uppercase tracking-[0.4em] text-white border border-white/40 bg-white/10 backdrop-blur hover:bg-white/20"
+            <button
+              type="button"
+              onClick={() => setLanguage((prev) => (prev === "es" ? "eng" : "es"))}
+              className={clsx(
+                languageButtonClasses,
+                "border-white/40 text-white/80 hover:border-white hover:text-white",
+              )}
             >
-              Book
-            </Button>
+              {language === "es" ? "ES" : "ENG"}
+            </button>
           </div>
 
           <Link href="/" aria-label="Silvia Romero Home" className="hidden items-center justify-center md:flex">
             <Image
               src="/logo.png"
               alt="Silvia Romero Logo"
-              width={120}
-              height={120}
+              width={160}
+              height={160}
               priority
-              className="h-20 w-20 object-contain drop-shadow-[0_22px_36px_rgba(255,255,255,0.35)] transition-transform duration-500 ease-out hover:scale-105"
+              className="h-24 w-24 object-contain transition-transform duration-500 ease-out hover:scale-105"
               style={{ filter: "brightness(0) invert(1)" }}
             />
           </Link>
@@ -123,51 +140,49 @@ export const Navbar = () => {
             <button
               type="button"
               onClick={() => setLanguage((prev) => (prev === "es" ? "eng" : "es"))}
-              className="[font-family:var(--font-sans)] text-sm uppercase tracking-[0.6em] text-white/80 border border-white/30 px-4 py-2 rounded-full transition-all duration-300 hover:text-white hover:border-white/60"
+              className={clsx(
+                languageButtonClasses,
+                "border-white/30 text-white/80 hover:border-white hover:text-white",
+              )}
             >
               {language === "es" ? "ES" : "ENG"}
             </button>
           </div>
-      </div>
-    </header>
-
-    <div
-      className={clsx(
-        "md:hidden overflow-hidden bg-black/90 text-white transition-[max-height,opacity] duration-500 ease-out backdrop-blur-lg",
-        isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
-      )}
-    >
-      <div className="flex flex-col gap-6 px-6 pb-8 pt-24">
-        {primaryLinks.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            onClick={closeMenu}
-            className="[font-family:var(--font-subtitle)] text-base uppercase tracking-[0.5em] text-white/80 transition-colors hover:text-white"
-          >
-            {item.label}
-          </Link>
-        ))}
-        <div className="flex items-center justify-between pt-4">
-          <Button
-            as={Link}
-            href="#booking"
-            radius="full"
-            className="[font-family:var(--font-title)] text-xs uppercase tracking-[0.5em] text-white border border-white/30 bg-white/10 px-6"
-            onClick={closeMenu}
-          >
-            Book Now
-          </Button>
-          <button
-            type="button"
-            onClick={() => setLanguage((prev) => (prev === "es" ? "eng" : "es"))}
-            className="[font-family:var(--font-sans)] text-sm uppercase tracking-[0.5em] text-white/80 border border-white/30 px-4 py-2 rounded-full"
-          >
-            {language === "es" ? "ES" : "ENG"}
-          </button>
         </div>
-      </div>
-    </div>
-  </>
-);
+      </header>
+
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-40 flex flex-col bg-black/95 text-white md:hidden">
+          <div className="mt-24 flex flex-1 flex-col gap-8 px-6 pb-12">
+            {primaryLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                className="[font-family:var(--font-subtitle)] text-lg uppercase tracking-[0.5em] text-white/80 transition-colors hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Button
+              as={Link}
+              href="#booking"
+              radius="full"
+              onClick={closeMenu}
+              className="[font-family:var(--font-title)] text-xs uppercase tracking-[0.5em] text-white border border-white/30 bg-white/10 px-6 py-6 transition hover:bg-white/20"
+            >
+              Book Now
+            </Button>
+            <button
+              type="button"
+              onClick={() => setLanguage((prev) => (prev === "es" ? "eng" : "es"))}
+              className={clsx(languageButtonClasses, "border-white/30 text-white/80 hover:border-white hover:text-white")}
+            >
+              {language === "es" ? "ES" : "ENG"}
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
 };

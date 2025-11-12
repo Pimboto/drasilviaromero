@@ -37,8 +37,8 @@ export const ResultsGallery = () => {
               <p className="[font-family:var(--font-subtitle)] text-xs uppercase tracking-[0.65em] text-gray-500">
                 What are the results
               </p>
-              <h3 className="mt-4 [font-family:var(--font-title)] text-3xl font-light tracking-[0.08em] sm:text-4xl">
-                Antes y después curados con criterio médico.
+              <h3 className="mt-4 text-balance [font-family:var(--font-title)] text-3xl font-light tracking-[0.08em] sm:text-4xl">
+                <span className="text-[#d4af37]">Antes y después</span> curados con criterio médico.
               </h3>
             </div>
             <p className="max-w-xl text-sm text-gray-600">
@@ -56,7 +56,7 @@ export const ResultsGallery = () => {
                   </p>
                   <span className="text-xs uppercase tracking-[0.4em] text-gray-400">{item.note}</span>
                 </div>
-                <div className="mt-4 grid grid-cols-2 gap-2">
+                <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
                   <div className="relative h-64 w-full overflow-hidden">
                     <Image
                       src={item.before}

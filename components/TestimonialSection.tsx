@@ -60,7 +60,7 @@ export const TestimonialSection = () => {
         <div className="flex flex-wrap items-center gap-4 text-white/80">
           <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.5em]">
             <span className="rounded-full bg-white px-2 py-1 text-[0.65rem] font-bold text-black">G</span>
-            Google Reviews
+            <span className="text-[#d4af37]">Google Reviews</span>
           </div>
           <p className="text-sm text-white/60">4.98 · Experiencias reales verificadas</p>
         </div>
@@ -88,12 +88,12 @@ export const TestimonialSection = () => {
                 </div>
                 <div className="flex items-center gap-1">
                   {Array.from({ length: item.rating }).map((_, idx) => (
-                    <span key={`${item.name}-${idx}`} className="text-yellow-300">
+                    <span key={`${item.name}-${idx}`} className="text-[#d4af37]">
                       ★
                     </span>
                   ))}
                 </div>
-                <p className="text-lg text-white/80">{item.review}</p>
+                <p className="text-balance text-lg text-white/80">{item.review}</p>
               </article>
             ))}
           </div>

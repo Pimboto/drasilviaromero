@@ -17,20 +17,22 @@ export const Hero = () => {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent via-black/70 to-black" />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col items-center px-6 pb-40 pt-32 text-center text-white sm:px-10 sm:pt-36 lg:pt-44">
-        <p className="[font-family:var(--font-subtitle)] text-xs uppercase tracking-[0.65em] text-white/70">
-          Clinica Silvia Romero
-        </p>
-        <h1 className="mt-6 [font-family:var(--font-title)] text-4xl font-light leading-tight tracking-[0.08em] text-white sm:text-5xl md:text-6xl lg:text-7xl">
-          Tu potencial estetico te esta esperando
-        </h1>
-        <span className="mt-8 block h-px w-24 bg-white/60" />
-        <p className="mt-6 max-w-3xl [font-family:var(--font-subtitle)] text-sm uppercase tracking-[0.5em] text-white/70 sm:text-base">
-          Protocolos signature de medicina estetica para rostro y cuerpo con tecnologia de vanguardia.
-        </p>
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 pt-28 pb-16 text-center text-white sm:px-10">
+        <div className="flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center">
+          <p className="[font-family:var(--font-subtitle)] text-xs uppercase tracking-[0.65em] text-white/70">
+            Clinica Silvia Romero
+          </p>
+          <h1 className="mx-auto mt-6 w-full max-w-4xl text-balance [font-family:var(--font-title)] text-4xl font-light leading-tight tracking-[0.08em] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            Tu <span className="text-[#d4af37]">potencial estético</span> te está esperando
+          </h1>
+          <span className="mt-8 block h-px w-24 bg-white/60" />
+          <p className="mt-6 max-w-3xl [font-family:var(--font-subtitle)] text-sm uppercase tracking-[0.5em] text-white/70 sm:text-base">
+            Protocolos signature de medicina estetica para rostro y cuerpo con tecnologia de vanguardia.
+          </p>
+        </div>
         <a
           href="#cta-section"
-          className="group mt-auto flex flex-col items-center gap-4 text-white/70"
+          className="group mt-10 flex flex-col items-center gap-4 text-white/70"
           aria-label="Desplazarse a la sección de protocolos personalizados"
         >
           <span className="[font-family:var(--font-subtitle)] text-[0.7rem] uppercase tracking-[0.8em]">

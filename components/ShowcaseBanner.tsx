@@ -27,12 +27,12 @@ export const ShowcaseBanner = () => {
             priority
           />
           <div className="absolute inset-0 bg-black/30" />
-          <div className="relative z-10 flex h-full w-full flex-col items-center justify-center text-center">
+          <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-6 text-center">
             <span className="[font-family:var(--font-subtitle)] text-xs uppercase tracking-[0.65em] text-white/80">
               Cuidado hecho a tu medida
             </span>
-            <p className="mt-6 max-w-3xl [font-family:var(--font-title)] text-4xl font-light tracking-[0.06em] text-white sm:text-5xl">
-              “Te recibimos como mereces: con tiempo, escucha y protocolos que honran tu historia y tu piel.”
+            <p className="mt-6 max-w-3xl text-balance [font-family:var(--font-title)] text-4xl font-light tracking-[0.06em] text-white sm:text-5xl">
+              “Te recibimos como <span className="text-[#d4af37]">mereces</span>: con tiempo, escucha y protocolos que honran tu historia y tu piel.”
             </p>
           </div>
         </div>

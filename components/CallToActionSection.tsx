@@ -58,14 +58,14 @@ export const CallToActionSection = () => {
   return (
     <section id="cta-section" className="relative isolate w-full overflow-hidden bg-black text-white">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-24 sm:px-10">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl text-left">
           <p className="[font-family:var(--font-subtitle)] text-xs uppercase tracking-[0.65em] text-white/60">
             Agenda tu diagnostico
           </p>
-          <h2 className="mt-6 [font-family:var(--font-title)] text-3xl font-light leading-tight tracking-[0.1em] sm:text-4xl md:text-5xl">
-            Protocolos personalizados para piel, contorno y bienestar integral.
+          <h2 className="mt-6 text-balance [font-family:var(--font-title)] text-3xl font-light leading-tight tracking-[0.1em] sm:text-4xl md:text-5xl">
+            <span className="text-[#d4af37]">Protocolos personalizados</span> para piel, contorno y bienestar integral.
           </h2>
-          <p className="mt-5 text-base text-white/80 sm:text-lg">
+          <p className="mt-5 text-balance text-base text-white/80 sm:text-lg">
             Evaluamos tu estilo de vida, rutina y metas estéticas para diseñar un plan holístico que
             combine aparatología, técnicas médicas y rituales sensoriales. Cada sesión termina con
             recomendaciones de mantenimiento para sostener el resultado en casa.
@@ -100,7 +100,7 @@ export const CallToActionSection = () => {
               priority
             />
           </div>
-          <div className="relative h-[420px] w-full flex-1 overflow-hidden md:h-[780px] md:-ml-[12vw] md:translate-y-16 md:z-10 md:drop-shadow-[0_35px_90px_rgba(0,0,0,0.55)]">
+          <div className="relative h-[420px] w-full flex-1 overflow-hidden md:h-[780px] md:-ml-[12vw] md:translate-y-16 md:z-10">
             <Image
               src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80"
               alt="Paciente posando con la piel luminosa después del tratamiento"
@@ -133,10 +133,10 @@ export const CallToActionSection = () => {
               <p className="[font-family:var(--font-subtitle)] text-xs uppercase tracking-[0.65em] text-gray-500">
                 Sobre nosotros
               </p>
-              <h3 className="mt-6 [font-family:var(--font-title)] text-3xl font-light leading-tight tracking-[0.08em] text-gray-900 sm:text-4xl">
-                Medicina estética con raíces latinas y precisión europea.
+              <h3 className="mt-6 text-balance [font-family:var(--font-title)] text-3xl font-light leading-tight tracking-[0.08em] text-gray-900 sm:text-4xl">
+                <span className="text-[#d4af37]">Medicina estética</span> con raíces latinas y precisión europea.
               </h3>
-              <p className="mt-4 text-lg text-gray-600">
+              <p className="mt-4 text-balance text-lg text-gray-600">
                 La clínica está ubicada en Av. Paseo de la Reforma, Ciudad de México. Liderada por la Dra.
                 Silvia Romero, cirujana estética con más de 18 años perfeccionando protocolos personalizados
                 para piel, contorno facial y bienestar integral. Nuestro equipo combina técnicas médicas,
